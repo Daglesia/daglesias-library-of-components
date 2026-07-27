@@ -1,0 +1,75 @@
+// =============================================================================
+// Component: Alert
+// Block:      .dlc-alert
+// Elements:   .dlc-alert__icon, .dlc-alert__title, .dlc-alert__body,
+//             .dlc-alert__close
+// Modifiers:  --info (default) | --success | --warning | --danger
+// =============================================================================
+
+@use "../abstracts" as *;
+
+.dlc-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: $dlc-space-3;
+
+  padding: $dlc-space-4;
+  border: $dlc-border-width solid;
+  border-radius: var(--dlc-radius-md);
+
+  font-family: var(--dlc-font-family-base);
+  font-size: $dlc-font-size-sm;
+
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e3a8a;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    margin: 0 0 $dlc-space-1;
+    font-weight: $dlc-font-weight-semibold;
+  }
+
+  &__body {
+    margin: 0;
+    line-height: $dlc-line-height-base;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+
+    &:hover { opacity: 1; }
+  }
+
+  &--success {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #14532d;
+  }
+
+  &--warning {
+    background-color: #fffbeb;
+    border-color: #fde68a;
+    color: #78350f;
+  }
+
+  &--danger {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #7f1d1d;
+  }
+}

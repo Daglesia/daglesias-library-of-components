@@ -1,0 +1,22 @@
+// =============================================================================
+// DLC UI — entry point
+// Compiled to dist/dlc-ui.css via `npm run build`.
+// Consumers who want to customize tokens at the Sass level (not just via
+// CSS custom properties) can @use "dlc-ui/scss/abstracts" and override
+// $dlc-* variables before this file loads — see AI_GUIDE.md.
+// =============================================================================
+
+@use "abstracts";
+
+@use "base/reset";
+
+@use "components/button";
+@use "components/input";
+@use "components/textarea";
+@use "components/select";
+@use "components/checkbox";
+@use "components/radio";
+@use "components/badge";
+@use "components/card";
+@use "components/alert";
+@use "components/modal";

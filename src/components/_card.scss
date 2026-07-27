@@ -1,0 +1,61 @@
+// =============================================================================
+// Component: Card
+// Block:      .dlc-card
+// Elements:   .dlc-card__header, .dlc-card__title, .dlc-card__subtitle,
+//             .dlc-card__body, .dlc-card__footer
+// Modifiers:  --bordered (default) | --elevated | --flat
+// =============================================================================
+
+@use "../abstracts" as *;
+
+.dlc-card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--dlc-color-white);
+  border: $dlc-border-width solid var(--dlc-color-gray-200);
+  border-radius: var(--dlc-radius-lg);
+  overflow: hidden;
+
+  &--elevated {
+    border-color: transparent;
+    box-shadow: var(--dlc-shadow-md);
+  }
+
+  &--flat {
+    border-color: transparent;
+  }
+
+  &__header {
+    padding: $dlc-space-4 $dlc-space-5;
+    border-bottom: $dlc-border-width solid var(--dlc-color-gray-200);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $dlc-font-size-lg;
+    font-weight: $dlc-font-weight-semibold;
+    color: var(--dlc-color-gray-900);
+  }
+
+  &__subtitle {
+    margin: $dlc-space-1 0 0;
+    font-size: $dlc-font-size-sm;
+    color: var(--dlc-color-gray-500);
+  }
+
+  &__body {
+    flex: 1;
+    padding: $dlc-space-5;
+    font-size: $dlc-font-size-sm;
+    color: var(--dlc-color-gray-700);
+  }
+
+  &__footer {
+    padding: $dlc-space-4 $dlc-space-5;
+    border-top: $dlc-border-width solid var(--dlc-color-gray-200);
+    display: flex;
+    align-items: center;
+    gap: $dlc-space-2;
+  }
+}

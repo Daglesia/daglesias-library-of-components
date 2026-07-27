@@ -1,0 +1,82 @@
+// =============================================================================
+// Component: Radio
+// Block:      .dlc-radio
+// Elements:   .dlc-radio__input, .dlc-radio__circle, .dlc-radio__label
+// States:     :checked, :disabled / .is-disabled
+// =============================================================================
+
+@use "../abstracts" as *;
+
+.dlc-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: $dlc-space-2;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__circle {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: $dlc-border-width solid var(--dlc-color-gray-300);
+    border-radius: $dlc-radius-full;
+    background-color: var(--dlc-color-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    @include dlc-transition(border-color, background-color);
+
+    &::after {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: $dlc-radius-full;
+      background-color: var(--dlc-color-white);
+      transform: scale(0);
+      transition: transform 120ms ease-in-out;
+    }
+  }
+
+  &__input:checked ~ &__circle {
+    background-color: var(--dlc-color-primary);
+    border-color: var(--dlc-color-primary);
+
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &__input:focus-visible ~ &__circle {
+    outline: 2px solid var(--dlc-color-primary);
+    outline-offset: 2px;
+  }
+
+  &__label {
+    font-size: $dlc-font-size-sm;
+    color: var(--dlc-color-gray-700);
+  }
+
+  &__input:disabled ~ &__circle,
+  &.is-disabled &__circle {
+    @include dlc-disabled-state;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}

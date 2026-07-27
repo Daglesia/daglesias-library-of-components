@@ -1,0 +1,10 @@
+// =============================================================================
+// DLC UI — abstracts barrel
+// Forwards tokens + mixins so any file can do `@use "../abstracts" as *;`
+// and get $dlc-* variables and dlc-* mixins directly, without a namespace
+// prefix. This is the ONLY file in the library that should be @forward-ed
+// wholesale — everything else uses explicit, namespaced @use.
+// =============================================================================
+
+@forward "variables";
+@forward "mixins";

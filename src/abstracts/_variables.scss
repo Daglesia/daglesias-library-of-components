@@ -1,0 +1,132 @@
+// =============================================================================
+// DLC UI — Design tokens
+// Sass variables drive compile-time defaults. They are piped into CSS custom
+// properties on :root so consumers can override values at runtime (theming,
+// dark mode, per-instance overrides) without recompiling Sass.
+// =============================================================================
+
+// ---- Color: brand ----------------------------------------------------------
+$dlc-color-primary:        #3b5bfd !default;
+$dlc-color-primary-hover:  #2f49d1 !default;
+$dlc-color-primary-active: #263ca8 !default;
+
+$dlc-color-secondary:        #6b7280 !default;
+$dlc-color-secondary-hover:  #565d68 !default;
+$dlc-color-secondary-active: #41474f !default;
+
+$dlc-color-success: #16a34a !default;
+$dlc-color-danger:  #dc2626 !default;
+$dlc-color-warning: #d97706 !default;
+$dlc-color-info:    #0891b2 !default;
+
+// ---- Color: neutrals --------------------------------------------------------
+$dlc-color-white: #ffffff !default;
+$dlc-color-gray-50:  #f9fafb !default;
+$dlc-color-gray-100: #f3f4f6 !default;
+$dlc-color-gray-200: #e5e7eb !default;
+$dlc-color-gray-300: #d1d5db !default;
+$dlc-color-gray-400: #9ca3af !default;
+$dlc-color-gray-500: #6b7280 !default;
+$dlc-color-gray-600: #4b5563 !default;
+$dlc-color-gray-700: #374151 !default;
+$dlc-color-gray-800: #1f2937 !default;
+$dlc-color-gray-900: #111827 !default;
+
+// ---- Typography --------------------------------------------------------------
+$dlc-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !default;
+$dlc-font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !default;
+
+$dlc-font-size-xs:   0.75rem !default;  // 12px
+$dlc-font-size-sm:   0.875rem !default; // 14px
+$dlc-font-size-md:   1rem !default;     // 16px
+$dlc-font-size-lg:   1.125rem !default; // 18px
+$dlc-font-size-xl:   1.25rem !default;  // 20px
+
+$dlc-font-weight-regular:  400 !default;
+$dlc-font-weight-medium:   500 !default;
+$dlc-font-weight-semibold: 600 !default;
+$dlc-font-weight-bold:     700 !default;
+
+$dlc-line-height-base: 1.5 !default;
+
+// ---- Spacing scale (used for padding/margin/gap across components) ----------
+$dlc-space-1: 0.25rem !default; // 4px
+$dlc-space-2: 0.5rem  !default; // 8px
+$dlc-space-3: 0.75rem !default; // 12px
+$dlc-space-4: 1rem    !default; // 16px
+$dlc-space-5: 1.5rem  !default; // 24px
+$dlc-space-6: 2rem    !default; // 32px
+
+// ---- Radius / borders ---------------------------------------------------------
+$dlc-radius-sm: 4px !default;
+$dlc-radius-md: 6px !default;
+$dlc-radius-lg: 10px !default;
+$dlc-radius-full: 9999px !default;
+
+$dlc-border-width: 1px !default;
+
+// ---- Shadows ------------------------------------------------------------------
+$dlc-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06) !default;
+$dlc-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.10) !default;
+$dlc-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.14) !default;
+
+// ---- Motion ---------------------------------------------------------------------
+$dlc-transition-fast: 120ms ease-in-out !default;
+$dlc-transition-base: 180ms ease-in-out !default;
+
+// ---- Breakpoints (Sass-only — used inside media queries) ----------------------
+$dlc-breakpoint-sm: 480px !default;
+$dlc-breakpoint-md: 768px !default;
+$dlc-breakpoint-lg: 1024px !default;
+
+// ---- Z-index scale --------------------------------------------------------------
+$dlc-z-dropdown: 1000 !default;
+$dlc-z-modal:    1050 !default;
+$dlc-z-tooltip:  1070 !default;
+
+// =============================================================================
+// Runtime-overridable custom properties.
+// Components consume var(--dlc-*) so a consumer can override any token by
+// redeclaring these on :root or on a scoped wrapper, with no rebuild needed.
+// =============================================================================
+:root {
+  --dlc-color-primary: #{$dlc-color-primary};
+  --dlc-color-primary-hover: #{$dlc-color-primary-hover};
+  --dlc-color-primary-active: #{$dlc-color-primary-active};
+
+  --dlc-color-secondary: #{$dlc-color-secondary};
+  --dlc-color-secondary-hover: #{$dlc-color-secondary-hover};
+  --dlc-color-secondary-active: #{$dlc-color-secondary-active};
+
+  --dlc-color-success: #{$dlc-color-success};
+  --dlc-color-danger: #{$dlc-color-danger};
+  --dlc-color-warning: #{$dlc-color-warning};
+  --dlc-color-info: #{$dlc-color-info};
+
+  --dlc-color-white: #{$dlc-color-white};
+  --dlc-color-gray-50: #{$dlc-color-gray-50};
+  --dlc-color-gray-100: #{$dlc-color-gray-100};
+  --dlc-color-gray-200: #{$dlc-color-gray-200};
+  --dlc-color-gray-300: #{$dlc-color-gray-300};
+  --dlc-color-gray-400: #{$dlc-color-gray-400};
+  --dlc-color-gray-500: #{$dlc-color-gray-500};
+  --dlc-color-gray-600: #{$dlc-color-gray-600};
+  --dlc-color-gray-700: #{$dlc-color-gray-700};
+  --dlc-color-gray-800: #{$dlc-color-gray-800};
+  --dlc-color-gray-900: #{$dlc-color-gray-900};
+
+  --dlc-font-family-base: #{$dlc-font-family-base};
+  --dlc-font-family-mono: #{$dlc-font-family-mono};
+
+  --dlc-radius-sm: #{$dlc-radius-sm};
+  --dlc-radius-md: #{$dlc-radius-md};
+  --dlc-radius-lg: #{$dlc-radius-lg};
+  --dlc-radius-full: #{$dlc-radius-full};
+
+  --dlc-shadow-sm: #{$dlc-shadow-sm};
+  --dlc-shadow-md: #{$dlc-shadow-md};
+  --dlc-shadow-lg: #{$dlc-shadow-lg};
+
+  --dlc-transition-fast: #{$dlc-transition-fast};
+  --dlc-transition-base: #{$dlc-transition-base};
+}

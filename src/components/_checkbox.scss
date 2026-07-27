@@ -1,0 +1,82 @@
+// =============================================================================
+// Component: Checkbox
+// Block:      .dlc-checkbox
+// Elements:   .dlc-checkbox__input, .dlc-checkbox__box, .dlc-checkbox__label
+// States:     :checked, :disabled / .is-disabled
+// =============================================================================
+
+@use "../abstracts" as *;
+
+.dlc-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: $dlc-space-2;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__box {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: $dlc-border-width solid var(--dlc-color-gray-300);
+    border-radius: $dlc-radius-sm;
+    background-color: var(--dlc-color-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    @include dlc-transition(border-color, background-color);
+
+    &::after {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      background-color: var(--dlc-color-white);
+      transform: scale(0);
+      transition: transform 120ms ease-in-out;
+    }
+  }
+
+  &__input:checked ~ &__box {
+    background-color: var(--dlc-color-primary);
+    border-color: var(--dlc-color-primary);
+
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &__input:focus-visible ~ &__box {
+    outline: 2px solid var(--dlc-color-primary);
+    outline-offset: 2px;
+  }
+
+  &__label {
+    font-size: $dlc-font-size-sm;
+    color: var(--dlc-color-gray-700);
+  }
+
+  &__input:disabled ~ &__box,
+  &.is-disabled &__box {
+    @include dlc-disabled-state;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}

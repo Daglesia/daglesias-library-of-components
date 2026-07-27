@@ -1,0 +1,16 @@
+// =============================================================================
+// DLC UI — Base
+// Intentionally minimal: this is a component library, not a full CSS reset
+// for the host application. It only normalizes box-sizing for elements
+// carrying a dlc- class, and sets sensible defaults on components that
+// render native form controls.
+// =============================================================================
+
+[class*="dlc-"] {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}

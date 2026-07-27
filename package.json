@@ -1,0 +1,41 @@
+{
+  "name": "dlc-ui",
+  "version": "1.0.0",
+  "description": "DLC UI — a SASS/BEM CSS component library. Import compiled CSS or use the SCSS source directly to theme via Sass variables and CSS custom properties.",
+  "license": "MIT",
+  "main": "dist/dlc-ui.css",
+  "style": "dist/dlc-ui.css",
+  "sass": "src/index.scss",
+  "files": [
+    "dist",
+    "src",
+    "AI_GUIDE.md"
+  ],
+  "exports": {
+    ".": {
+      "sass": "./src/index.scss",
+      "style": "./dist/dlc-ui.css",
+      "default": "./dist/dlc-ui.css"
+    },
+    "./scss": "./src/index.scss",
+    "./scss/*": "./src/*.scss",
+    "./dist/*": "./dist/*"
+  },
+  "scripts": {
+    "build": "npm run build:css && npm run build:min",
+    "build:css": "sass src/index.scss dist/dlc-ui.css --style=expanded --no-source-map",
+    "build:min": "sass src/index.scss dist/dlc-ui.min.css --style=compressed --no-source-map",
+    "watch": "sass --watch src/index.scss:dist/dlc-ui.css"
+  },
+  "devDependencies": {
+    "sass": "^1.101.7"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "bem",
+    "component-library",
+    "design-system"
+  ]
+}
