@@ -1,47 +1,30 @@
-// =============================================================================
-// Component: Searchbar
-// Block:      .dlc-searchbar
-// Elements:   .dlc-searchbar__icon, .dlc-searchbar__field, .dlc-searchbar__clear,
-//             .dlc-searchbar__suffix
-// Modifiers:  --sm | --md (default) | --lg
-//             --elevated (Material "elevated" search bar, floats above content)
-//             --full-width
-// States:     :focus-within, .is-disabled
-// Reference:  Material Design 3 search — full-pill container, 24dp leading
-//             icon, optional trailing actions, elevation shift on focus.
-//             https://m3.material.io/components/search/overview
-// =============================================================================
-
 @use "../abstracts" as *;
 
-.dlc-searchbar {
+$BORDER-RADIUS: 16px;
+
+.dlc-searchbox {
   display: inline-flex;
   align-items: center;
   gap: $dlc-space-3;
-  width: 20rem;
-  max-width: 100%;
+  width: 100%;
 
   padding: 0 $dlc-space-4;
-  background-color: var(--dlc-color-gray-100);
-  border: $dlc-border-width solid transparent;
-  border-radius: var(--dlc-radius-full);
+  background-color: $dlc-color-background-light;
+  color: $dlc-color-primary;
+  border: 2px solid transparent;
+  border-radius: $BORDER-RADIUS;
+  border-color: $dlc-color-background-lighter;
 
-  @include dlc-transition(border-color, box-shadow, background-color);
+  caret-color: $dlc-color-primary;
 
-  // Material's "docked" search bar sits flush with a resting tonal fill;
-  // focus lifts it to a white surface with a primary-tinted ring.
-  &:focus-within {
-    background-color: var(--dlc-color-white);
-    border-color: var(--dlc-color-primary);
-    box-shadow: 0 0 0 3px rgba(59, 91, 253, 0.15);
+  &:has(.dlc-searchbox__text-field:focus-visible) {
+    outline: 2px solid $dlc-color-gray-400;
   }
 
-  &.is-disabled {
-    @include dlc-disabled-state;
-    background-color: var(--dlc-color-gray-100);
+  &:active {
+    outline: 2px solid $dlc-color-primary;
   }
 
-  // ---- Element: leading search icon -----------------------------------------
   &__icon {
     display: inline-flex;
     flex-shrink: 0;
@@ -52,8 +35,7 @@
     color: var(--dlc-color-gray-500);
   }
 
-  // ---- Element: the actual <input> ------------------------------------------
-  &__field {
+  &__text-field {
     flex: 1;
     min-width: 0;
     border: none;
@@ -61,81 +43,15 @@
     background: transparent;
     padding: $dlc-space-3 0;
     font-family: var(--dlc-font-family-base);
-    font-size: $dlc-font-size-sm;
-    color: var(--dlc-color-gray-900);
+    font-size: $dlc-font-size-small;
+    color: $dlc-color-primary;
 
     &::placeholder {
       color: var(--dlc-color-gray-500);
     }
-
-    &:disabled {
-      cursor: not-allowed;
-    }
-
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-decoration {
-      appearance: none;
-    }
   }
 
-  &__clear {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
-    padding: 0;
-    background: transparent;
-    border: none;
-    border-radius: var(--dlc-radius-full);
-    color: var(--dlc-color-gray-500);
-    cursor: pointer;
-
-    @include dlc-transition(color, background-color);
-    @include dlc-focus-ring;
-
-    &:hover {
-      color: var(--dlc-color-gray-700);
-    }
-  }
-
-  &__suffix {
-    display: inline-flex;
-    align-items: center;
-    gap: $dlc-space-3;
-    flex-shrink: 0;
-    color: var(--dlc-color-gray-500);
-  }
-
-  &--elevated {
-    background-color: var(--dlc-color-white);
-    border-color: transparent;
-    box-shadow: var(--dlc-shadow-md);
-
-    &:focus-within {
-      box-shadow: var(--dlc-shadow-lg);
-    }
-  }
-
-  &--small {
-    gap: $dlc-space-2;
-    padding: 0 $dlc-space-3;
-
-    .dlc-searchbar__field { padding: $dlc-space-2 0; font-size: $dlc-font-size-xs; }
-    .dlc-searchbar__icon,
-    .dlc-searchbar__clear { width: 1rem; height: 1rem; }
-  }
-
-  &--large {
-    padding: 0 $dlc-space-5;
-
-    .dlc-searchbar__field { padding: $dlc-space-4 0; font-size: $dlc-font-size-md; }
-    .dlc-searchbar__icon,
-    .dlc-searchbar__clear { width: 1.5rem; height: 1.5rem; }
-  }
-
-  &--full-width {
-    width: 100%;
+  &--top-of-list {
+    border-radius: $BORDER-RADIUS $BORDER-RADIUS 0 0;
   }
 }

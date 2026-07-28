@@ -1,10 +1,10 @@
 {
-  "name": "dlc-ui",
+  "name": "@daglesia/daglesias-library-of-components",
   "version": "1.0.0",
-  "description": "DLC UI — a SASS/BEM CSS component library. Import compiled CSS or use the SCSS source directly to theme via Sass variables and CSS custom properties.",
+  "description": "Daglesia's Library of Components - CSS and SCSS for building web interfaces for Daglesia's ecosystem.",
   "license": "MIT",
-  "main": "dist/dlc-ui.css",
-  "style": "dist/dlc-ui.css",
+  "main": "dist/daglesias-library-of-components.css",
+  "style": "dist/daglesias-library-of-components.css",
   "sass": "src/index.scss",
   "files": [
     "dist",
@@ -14,8 +14,8 @@
   "exports": {
     ".": {
       "sass": "./src/index.scss",
-      "style": "./dist/dlc-ui.css",
-      "default": "./dist/dlc-ui.css"
+      "style": "./dist/daglesias-library-of-components.css",
+      "default": "./dist/daglesias-library-of-components.css"
     },
     "./scss": "./src/index.scss",
     "./scss/*": "./src/*.scss",
@@ -23,9 +23,9 @@
   },
   "scripts": {
     "build": "npm run build:css && npm run build:min",
-    "build:css": "sass src/index.scss dist/dlc-ui.css --style=expanded --no-source-map",
-    "build:min": "sass src/index.scss dist/dlc-ui.min.css --style=compressed --no-source-map",
-    "watch": "sass --watch src/index.scss:dist/dlc-ui.css"
+    "build:css": "sass src/index.scss dist/daglesias-library-of-components.css --style=expanded --no-source-map",
+    "build:min": "sass src/index.scss dist/daglesias-library-of-components.min.css --style=compressed --no-source-map",
+    "watch": "sass --watch src/index.scss:dist/daglesias-library-of-components.css"
   },
   "devDependencies": {
     "sass": "^1.101.7"
