@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to publish (e.g. 1.2.3)"
+        required: true
 
 jobs:
   publish:
@@ -27,6 +32,13 @@ jobs:
 
       - name: Build CSS
         run: npm run build
+
+      - name: Set version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          VERSION="${INPUT_VERSION:-${GITHUB_REF_NAME#v}}"
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
 
       - name: Authenticate to Forgejo registry
         env:
