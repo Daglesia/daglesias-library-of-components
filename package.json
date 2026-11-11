@@ -21,6 +21,9 @@
     "./scss/*": "./src/*.scss",
     "./dist/*": "./dist/*"
   },
+  "publishConfig": {
+    "registry": "https://git.daglesia.com/api/packages/magdalena/npm/"
+  },
   "scripts": {
     "build": "npm run build:css && npm run build:min",
     "build:css": "sass src/index.scss dist/daglesias-library-of-components.css --style=expanded --no-source-map",
